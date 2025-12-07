@@ -1,4 +1,4 @@
-const BACKEND = "http://127.0.0.1:5000";
+const BACKEND = "https://srirobert.pythonanywhere.com/";
 
 // ✅ Submit address
 function submitAddress() {
