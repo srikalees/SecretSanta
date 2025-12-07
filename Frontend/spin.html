@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spin Secret Santa 🎡</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Spin Your Secret Santa 🎁</h2>
+
+  <input id="spinName" placeholder="Enter Your Name">
+  <button onclick="spin()">Spin</button>
+  <p id="spinMsg"></p>
+
+  <script>
+    const BACKEND = "http://127.0.0.1:5000";
+
+    function spin() {
+      const name = document.getElementById("spinName").value;
+
+      fetch(BACKEND + "/spin", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({name})
+      })
+      .then(res => res.json())
+      .then(data => {
+        const div = document.getElementById("spinMsg");
+        if (data.selected_name) {
+          div.innerHTML = `🎯 You got: ${data.selected_name}<br>📍 Address: ${data.selected_address}`;
+        } else {
+          div.innerText = data.message;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secret Santa 🎁</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Secret Santa Game</h2>
+
+  <div id="register">
+    <h3>Enter Your Details</h3>
+    <input id="name" placeholder="Enter Your Name">
+    <input id="address" placeholder="Enter Your Address">
+    <button onclick="submitAddress()">Submit Address</button>
+    <p id="submitMsg"></p>
+  </div>
+
+  <div id="generate" style="display:none;">
+    <button onclick="generatePairs()">Generate Secret Santa Pairs</button>
+    <p id="generateMsg"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
